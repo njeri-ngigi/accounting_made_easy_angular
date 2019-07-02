@@ -4,8 +4,6 @@
 <div id="app-login">
   <p>Hello, enter your password to continue
       <input type="password" required>
-      <a [routerLink]="'/dashboard'">
-        <button type="submit">&#8594;</button>
-      </a>
+      <button (click)="login()">&#8594;</button>
   </p>
 </div>

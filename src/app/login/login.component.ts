@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+    ) { }
 
   ngOnInit() {
     const welcomeMessage = document.getElementById('app-welcome-message');
@@ -17,7 +22,10 @@ export class LoginComponent implements OnInit {
       welcomeMessage.style.display = 'none';
       loginMessage.style.display = 'flex';
     }, 2000);
-
   }
 
+  login() {
+    this.authService.login();
+    this.router.navigateByUrl('/dashboard');
+  }
 }

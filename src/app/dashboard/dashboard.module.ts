@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { AuthGuardService } from '../guards/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,6 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     CommonModule,
     DashboardRoutingModule,
   ],
-  exports: [DashboardComponent]
+  providers: [AuthGuardService]
 })
 export class DashboardModule { }
