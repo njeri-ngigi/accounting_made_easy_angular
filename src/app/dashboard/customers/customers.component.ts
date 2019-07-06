@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomersService } from 'src/app/services/customers.service';
-import { ICustomer } from '../../models/customer.interface';
 import { faUsers, faUserPlus, faChartLine, faCogs, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -9,16 +7,13 @@ import { faUsers, faUserPlus, faChartLine, faCogs, faPowerOff } from '@fortaweso
   styleUrls: ['./customers.component.scss']
 })
 export class CustomersComponent implements OnInit {
-  customers: ICustomer[];
   faUsers = faUsers;
   faUserPlus = faUserPlus;
   faChartLine = faChartLine;
   faCogs = faCogs;
   faPowerOff = faPowerOff;
 
-  constructor(private service: CustomersService) { }
+  constructor() { }
 
-  async ngOnInit() {
-    this.customers = await this.service.fetchAllCustomers();
-  }
+  ngOnInit() { }
 }

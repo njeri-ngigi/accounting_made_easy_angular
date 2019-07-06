@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faUsers, faUserPlus, faChartLine, faCogs, faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus, faChartLine, faCogs, faPowerOff, faHome } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +7,7 @@ import { faUsers, faUserPlus, faChartLine, faCogs, faPowerOff } from '@fortaweso
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  faUsers = faUsers;
+  faHome = faHome;
   faUserPlus = faUserPlus;
   faChartLine = faChartLine;
   faCogs = faCogs;

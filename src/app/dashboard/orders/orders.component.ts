@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faUsers, faUserPlus, faChartLine, faCogs, faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { faChartLine, faCogs, faPowerOff, faShoppingBag, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -8,8 +8,8 @@ import { faUsers, faUserPlus, faChartLine, faCogs, faPowerOff } from '@fortaweso
   styleUrls: ['./orders.component.scss']
 })
 export class OrdersComponent implements OnInit {
-  faUsers = faUsers;
-  faUserPlus = faUserPlus;
+  faShoppingBag = faShoppingBag;
+  faPlusCircle = faPlusCircle;
   faChartLine = faChartLine;
   faCogs = faCogs;
   faPowerOff = faPowerOff;

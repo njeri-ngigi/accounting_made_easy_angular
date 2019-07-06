@@ -29,11 +29,11 @@ body {
 
   span:hover {
     cursor: pointer;
-    background-color: rgba($color: $color-active, $alpha: 0.7);
   }
 
   span:focus {
     animation: grow 1s;
+    outline: none;
   }
 
   .active {

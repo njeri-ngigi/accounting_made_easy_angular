@@ -11,6 +11,9 @@ import { OrdersComponent } from './orders/orders.component';
 import { CustomerCardComponent } from './customers/customer-card/customer-card.component';
 import { CustomersService } from '../services/customers.service';
 import { HomeComponent } from './home/home.component';
+import { CustomerComponent } from './customer/customer.component';
+import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { CustomersHomeComponent } from './customers/customers-home/customers-home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { HomeComponent } from './home/home.component';
     StockComponent,
     OrdersComponent,
     CustomerCardComponent,
-    HomeComponent
+    HomeComponent,
+    CustomerComponent,
+    AddCustomerComponent,
+    CustomersHomeComponent
   ],
   imports: [
     CommonModule,
