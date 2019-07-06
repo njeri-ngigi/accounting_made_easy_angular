@@ -1,4 +1,19 @@
-<div class="app-dashboard">
-    <p>dashboard works!</p>
-    <button (click)="logout()">Logout</button>
+<div class="navbar">
+  <span
+    routerLink="/dashboard" 
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }">Home</span>
+  <span 
+    routerLink="/dashboard/customers"
+    routerLinkActive="active">Customers</span>
+  <span
+    routerLink="/dashboard/stock"
+    routerLinkActive="active">Stock</span>
+  <span
+    routerLink="/dashboard/orders"
+    routerLinkActive="active">Orders</span>
+</div>
+
+<div class="main">
+  <router-outlet (activate)="onActivate($event)"></router-outlet>
 </div>
