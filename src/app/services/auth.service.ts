@@ -8,6 +8,7 @@ export class AuthService {
 
   login() {
     // TODO: call login method from the backend server
+    console.log('call meee????');
     localStorage.setItem('token', 'true');
   }
 

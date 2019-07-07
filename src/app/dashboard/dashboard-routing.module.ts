@@ -7,9 +7,10 @@ import { CustomersComponent } from './customers/customers.component';
 import { StockComponent } from './stock/stock.component';
 import { OrdersComponent } from './orders/orders.component';
 import { HomeComponent } from './home/home.component';
-import { AddCustomerComponent } from './add-customer/add-customer.component';
-import { CustomerComponent } from './customer/customer.component';
+import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
+import { CustomerComponent } from './customers/customer/customer.component';
 import { CustomersHomeComponent } from './customers/customers-home/customers-home.component';
+import { CustomerAnalyticsComponent } from './customers/customer-analytics/customer-analytics.component';
 
 const dashboardRoutes: Routes = [
   {
@@ -24,7 +25,8 @@ const dashboardRoutes: Routes = [
         children: [
           { path: '', component: CustomersHomeComponent },
           { path: 'addCustomer', component: AddCustomerComponent },
-          { path: 'customer', component: CustomerComponent }
+          { path: 'customer/:id', component: CustomerComponent },
+          { path: 'analytics', component: CustomerAnalyticsComponent }
         ]
       },
       { path: 'stock', component: StockComponent },

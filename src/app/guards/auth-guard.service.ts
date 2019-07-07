@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanDeactivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { CanComponentDeactivate } from '../models/deactivate-guard.interface';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService implements CanActivate {
+export class AuthGuardService implements CanActivate, CanDeactivate <CanComponentDeactivate> {
 
   constructor(
     private router: Router,
@@ -19,5 +21,10 @@ export class AuthGuardService implements CanActivate {
     this.router.navigate(['/login']);
 
     return false;
+  }
+
+  canDeactivate(): boolean {
+    this.authService.logout();
+    return true;
   }
 }

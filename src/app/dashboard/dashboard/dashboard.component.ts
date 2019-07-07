@@ -20,18 +20,10 @@ export class DashboardComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
-    this.router.events.subscribe(() => {
-
-    });
-  }
+  ngOnInit() { }
 
   logout() {
     this.authService.logout();
     this.router.navigateByUrl('/login');
-  }
-
-  onActivate() {
-    console.log('activated>>>>>>>>');
   }
 }
