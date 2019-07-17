@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faImages, faCloudDownloadAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-add-customer',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-customer.component.scss']
 })
 export class AddCustomerComponent implements OnInit {
+  faImages = faImages;
+  faCloudDownloadAlt = faCloudDownloadAlt;
+  faUserPlus = faUserPlus;
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  toggleCustomer(display, hide) {
+    document.getElementById(display).style.display = 'flex';
+    document.getElementById(hide).style.display = 'none';
   }
 
 }

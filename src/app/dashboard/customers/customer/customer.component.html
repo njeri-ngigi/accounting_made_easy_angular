@@ -1,3 +1,15 @@
-<p>
-  customer works!
-</p>
+<div *ngIf="!isLoading" class="app-customer">
+  <div class="customer">
+    <div class="image-div">
+      <img src={{customer.profile_picture}}>
+    </div>
+    <div>
+      <h2>{{customer.name}}</h2>
+      <h3>{{customer.phone_number}}</h3>
+      <h4>{{customer.email}}</h4>
+    </div>
+  </div>
+  <div class="customer-data">
+    <p>customer analysis</p>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+.app-customer {
+  display: flex;
+  height: 90%;
+  width: 90%;
+
+  .customer, .customer-data {
+    width: 100%;
+    height: 95%;
+    background-color: white;
+    margin: 20px;
+  }
+
+  .customer {
+    display: flex;
+    
+    .image-div {
+      height: 100px;
+      width: 100px;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

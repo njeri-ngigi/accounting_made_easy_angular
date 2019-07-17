@@ -11,6 +11,11 @@ export class CustomersService {
 
   fetchAllCustomers() {
     return axios.get(customerUrls.getAll)
-      .then((results) => results.data);
+      .then(results => results.data);
+  }
+
+  fetchCustomerById(id) {
+    return axios.get(customerUrls.getById(id))
+      .then(results => results.data);
   }
 }

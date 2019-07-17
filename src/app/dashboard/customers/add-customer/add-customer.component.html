@@ -1,3 +1,50 @@
-<p>
-  add-customer works!
-</p>
+<div class="add-customer">
+  <div id="add-customer" class="centered-div">
+    <div class="toggle-import" (click)="toggleCustomer('upload-customer', 'add-customer')" title="Upload contacts from google">
+      <span>
+        <fa-icon [icon]="faCloudDownloadAlt"></fa-icon>
+      </span>
+    </div>
+
+    <div id="customer-form">
+      <div class="customer-image">
+        <div class="image-div">
+          <span class="image-label" title="Upload a photo">
+            <fa-icon [icon]="faImages"></fa-icon>
+          </span>
+          <img src="../../../../assets/images/darth.png">
+        </div>
+      </div>
+
+      <form>
+        <div>
+          <input type="text" required>
+          <label>Customer's Name</label>
+        </div>
+
+        <div>
+          <input type="email" required>
+          <label class="label">Customer's Email</label>
+        </div>
+        
+        <div>
+          <input type="text" required>
+          <label class="label">Phone Number</label>
+        </div>
+        <button>Add Customer</button>
+      </form>
+    </div>
+  </div> 
+
+  <div id="upload-customer" class="centered-div">
+    <div class="toggle-import" (click)="toggleCustomer('add-customer', 'upload-customer')" title="Add a customer manually">
+      <span>
+        <fa-icon [icon]="faUserPlus"></fa-icon>
+      </span>
+    </div>
+         
+    <div class="import-customers">
+      <p>Will use google contact API to add customers</p>
+    </div>
+  </div>
+</div>
