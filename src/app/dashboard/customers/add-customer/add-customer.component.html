@@ -12,26 +12,33 @@
           <span class="image-label" title="Upload a photo">
             <fa-icon [icon]="faImages"></fa-icon>
           </span>
-          <img src="../../../../assets/images/darth.png">
+          <img src={{imagePlaceholder}}>
         </div>
       </div>
 
       <form>
         <div>
-          <input type="text" required>
+          <input type="text" (input)="customer.name=$event.target.value" required>
           <label>Customer's Name</label>
+          <p *ngIf="!shortName" class="error-message"> * Name should be atleast 2 characters long *</p>
+          <p *ngIf="!numbersOnly" class="error-message"> * Name should start with a letter  *</p>
+          <p *ngIf="!specialCharacters" class="error-message"> * Name should should not contain special characters *</p>
         </div>
 
         <div>
-          <input type="email" required>
+          <input type="email" (input)="customer.email=$event.target.value" required>
           <label class="label">Customer's Email</label>
+          <p *ngIf="!invalidEmail" class="error-message"> * Enter a valid email. E.g. user@email.com *</p>
+          <p *ngIf="!uniqueEmail" class="error-message"> * A customer with this email already exists *</p>
         </div>
         
         <div>
-          <input type="text" required>
+          <input type="text" (input)="customer.phoneNumber=$event.target.value" required>
           <label class="label">Phone Number</label>
+          <p *ngIf="!invalidPhoneNumber" class="error-message"> * Enter a valid phone number e.g. 0722 123 456 *</p>
+          <p *ngIf="!uniquePhoneNumber" class="error-message"> * A customer with this phone number already exists *</p>
         </div>
-        <button>Add Customer</button>
+        <button type="submit" (click)="addCustomerManually($event)">Add Customer</button>
       </form>
     </div>
   </div> 

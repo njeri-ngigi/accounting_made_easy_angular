@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ICustomer } from 'src/app/models/customer.interface';
+import { imagePlaceholder } from 'src/app/utils/constants';
 
 @Component({
   selector: 'app-customer-card',
@@ -12,6 +13,9 @@ export class CustomerCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (!this.customer.profile_picture) {
+      this.customer.profile_picture = imagePlaceholder;
+    }
   }
 
 }

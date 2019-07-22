@@ -13,7 +13,8 @@ export class CustomersHomeComponent implements OnInit {
   constructor(private service: CustomersService) { }
 
   async ngOnInit() {
-    this.customers = await this.service.fetchAllCustomers();
+    this.service.fetchAllCustomers().subscribe((data) => {
+      this.customers = data;
+    });
   }
-
 }

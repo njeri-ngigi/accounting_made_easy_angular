@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -32,11 +34,14 @@ import { CustomerAnalyticsComponent } from './customers/customer-analytics/custo
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     AuthGuardService,
-    CustomersService
+    CustomersService,
+    ToastrService
   ]
 })
 export class DashboardModule { }
