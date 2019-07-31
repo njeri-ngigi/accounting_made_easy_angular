@@ -1,11 +1,18 @@
 <div class="sidebar">
-  <span id="" class="active">
+  <span
+    routerLink="/dashboard/stock"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}">
     <fa-icon [icon]="faStore"></fa-icon>
   </span>
-  <span>
+  <span
+    routerLink="/dashboard/stock/addStock"
+    routerLinkActive="active">
     <fa-icon [icon]="faPlusCircle"></fa-icon>
   </span>
-  <span>
+  <span
+    routerLink="/dashboard/stock/analytics"
+    routerLinkActive="active">
     <fa-icon [icon]="faChartLine"></fa-icon>
   </span>
   <span
@@ -15,6 +22,4 @@
   </span>
 </div>
 
-<p>
-  stock works!
-</p>
+<router-outlet></router-outlet>

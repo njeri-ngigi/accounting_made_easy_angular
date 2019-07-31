@@ -11,6 +11,9 @@ import { AddCustomerComponent } from './customers/add-customer/add-customer.comp
 import { CustomerComponent } from './customers/customer/customer.component';
 import { CustomersHomeComponent } from './customers/customers-home/customers-home.component';
 import { CustomerAnalyticsComponent } from './customers/customer-analytics/customer-analytics.component';
+import { StockHomeComponent } from './stock/stock-home/stock-home.component';
+import { AddStockComponent } from './stock/add-stock/add-stock.component';
+import { StockAnalyticsComponent } from './stock/stock-analytics/stock-analytics.component';
 
 const dashboardRoutes: Routes = [
   {
@@ -29,7 +32,15 @@ const dashboardRoutes: Routes = [
           { path: 'analytics', component: CustomerAnalyticsComponent }
         ]
       },
-      { path: 'stock', component: StockComponent },
+      {
+        path: 'stock',
+        component: StockComponent,
+        children: [
+          { path: '', component: StockHomeComponent },
+          { path: 'addStock', component: AddStockComponent },
+          { path: 'analytics', component: StockAnalyticsComponent }
+        ]
+      },
       { path: 'orders', component: OrdersComponent },
       { path: 'orders', component: OrdersComponent },
     ]

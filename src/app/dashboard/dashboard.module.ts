@@ -17,6 +17,9 @@ import { CustomerComponent } from './customers/customer/customer.component';
 import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
 import { CustomersHomeComponent } from './customers/customers-home/customers-home.component';
 import { CustomerAnalyticsComponent } from './customers/customer-analytics/customer-analytics.component';
+import { StockHomeComponent } from './stock/stock-home/stock-home.component';
+import { AddStockComponent } from './stock/add-stock/add-stock.component';
+import { StockAnalyticsComponent } from './stock/stock-analytics/stock-analytics.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { CustomerAnalyticsComponent } from './customers/customer-analytics/custo
     CustomerComponent,
     AddCustomerComponent,
     CustomersHomeComponent,
-    CustomerAnalyticsComponent
+    CustomerAnalyticsComponent,
+    StockHomeComponent,
+    AddStockComponent,
+    StockAnalyticsComponent
   ],
   imports: [
     CommonModule,
