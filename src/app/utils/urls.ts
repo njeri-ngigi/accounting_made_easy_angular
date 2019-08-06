@@ -1,6 +1,10 @@
 const baseUrl = 'http://localhost:3000/api/v1/am/';
 
-export const  customerUrls = {
+export const customerUrls = {
   customers: `${baseUrl}customers`,
   getById: id => `${baseUrl}customers/${id}`,
+};
+
+export const stockUrls = {
+  stock: `${baseUrl}stock`
 };

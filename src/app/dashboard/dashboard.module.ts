@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { ChartsModule } from 'ng2-charts';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -20,6 +21,8 @@ import { CustomerAnalyticsComponent } from './customers/customer-analytics/custo
 import { StockHomeComponent } from './stock/stock-home/stock-home.component';
 import { AddStockComponent } from './stock/add-stock/add-stock.component';
 import { StockAnalyticsComponent } from './stock/stock-analytics/stock-analytics.component';
+import { StockCardComponent } from './stock/stock-card/stock-card.component';
+import { StockService } from '../services/stock.service';
 
 @NgModule({
   declarations: [
@@ -35,18 +38,21 @@ import { StockAnalyticsComponent } from './stock/stock-analytics/stock-analytics
     CustomerAnalyticsComponent,
     StockHomeComponent,
     AddStockComponent,
-    StockAnalyticsComponent
+    StockAnalyticsComponent,
+    StockCardComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
+    ChartsModule,
     ToastrModule.forRoot()
   ],
   providers: [
     AuthGuardService,
     CustomersService,
+    StockService,
     ToastrService
   ]
 })

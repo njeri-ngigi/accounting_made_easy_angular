@@ -1,0 +1,2 @@
+- add interceptors to check for error 500s, & no internet
+- add pages for 500 & 404s

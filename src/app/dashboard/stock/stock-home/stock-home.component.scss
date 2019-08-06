@@ -1,0 +1,54 @@
+.stock-home {
+  display: flex;
+  height: 98%;
+  padding: 10px;
+
+  .doughnut-chart {
+    width: 39%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .canvas {
+      position: relative;
+  
+    }
+
+    .canvas, .stock-details {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40%;
+      width: 95%;
+      background-color: white;
+      margin: 10px;
+      border-radius: 10px;
+    }
+
+    .stock-details {
+      flex-direction: column;
+      h3 {
+        border-left: 3px solid red;
+        padding: 10px 20px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+      }
+      button {
+        padding: 10px 20px;
+        border: 1px solid black;
+        outline: none;
+        border-radius: 20px;
+        margin: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .stock-cards {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

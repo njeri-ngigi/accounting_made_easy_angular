@@ -1,0 +1,87 @@
+.stock-card {
+  background-color: white;
+  margin: 10px;
+  display: flex;
+  width: 90%;
+  height: auto;
+  font-family: "Raleway";
+  border-radius: 0px 20px;
+
+  .stock-type {
+    background-color: #FEF9E7;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .stock-details {
+    width: 75%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+    .stock-images {
+      display: flex;
+      padding: 10px;
+      padding-left: 30px;
+
+      .stock-image {
+        margin-left: -10px;
+        border: 1px solid white;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        transition: .5s ease-in-out;
+
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+
+      .stock-image:hover {
+        cursor: pointer;
+        transform: translateY(-5px);
+        transition: .5s ease-in-out;
+        opacity: 0.8;
+      }
+    }
+
+    .stock-rows {
+      width: 100%;
+      display: flex;
+
+      .rows {
+        width: 50%;
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+  
+        p {
+          height: 40px;
+          width: 40px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 5px;
+          font-family: "Orbitron";
+        }
+  
+        .mini-text {
+          font-size: 0.8em;
+          color: gray;
+          padding: 5px;
+        }
+      }
+
+    }
+  
+
+  }
+
+  
+}

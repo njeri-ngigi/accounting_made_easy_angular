@@ -1,3 +1,25 @@
-<p>
-  stock-home works!
-</p>
+<div class="stock-home">
+  <div class="doughnut-chart">
+    <div class="canvas">
+      <canvas baseChart
+        [data]="doughnutChartData"
+        [labels]="doughnutChartLabels"
+        [colors]="doughnutChartColors"
+        [options]="doughnutChartOptions"
+        [chartType]="doughnutChartType">
+      </canvas>
+    </div>
+    <div class="stock-details">
+      <h3>You're running low on Trousers</h3>
+      <div>
+        <button>View Sales</button>
+        <button>Review Customers</button>
+        <button>Stock analysis</button>
+      </div>
+    </div>
+    
+  </div>
+  <div class="stock-cards">
+    <app-stock-card *ngFor="let stock of doughnutChartData"></app-stock-card>
+  </div>
+</div>
