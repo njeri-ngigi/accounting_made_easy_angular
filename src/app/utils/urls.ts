@@ -1,4 +1,6 @@
-const baseUrl = 'http://localhost:3000/api/v1/am/';
+import { environment } from '../../environments/environment';
+
+const { baseUrl } = environment;
 
 export const customerUrls = {
   customers: `${baseUrl}customers`,

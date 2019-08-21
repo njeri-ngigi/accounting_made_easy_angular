@@ -1,17 +1,20 @@
 .stock-home {
   display: flex;
-  height: 98%;
+  height: 97%;
+  width: 95%;
   padding: 10px;
+  overflow: auto;
+  justify-content: center;
 
   .doughnut-chart {
     width: 39%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 700px;
 
     .canvas {
       position: relative;
-  
     }
 
     .canvas, .stock-details {
@@ -33,6 +36,11 @@
         height: 50px;
         display: flex;
         align-items: center;
+
+        span {
+          animation-delay: 2s;
+          animation: sneak 1s;
+        }
       }
       button {
         padding: 10px 20px;
@@ -42,6 +50,11 @@
         margin: 10px;
         cursor: pointer;
       }
+
+      button:hover {
+        background-color: #FEF9E7;
+        transition: 0.5s ease-in-out;
+      }
     }
   }
 
@@ -50,5 +63,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 700px;
+  }
+}
+
+/* Animations */
+@keyframes sneak {
+  0% {
+    transform: translateY(10px)
+  }
+  100% {
+    transform: translateY(0px)
   }
 }

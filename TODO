@@ -1,2 +1,12 @@
 - add interceptors to check for error 500s, & no internet
 - add pages for 500 & 404s
+- ensure string for designers and fabric isn't too long
+
+Features:
+- add stock 
+- handle stock being empty
+- add more messages for the warning messages
+- View a single type of stock
+- concat long long list of names for designer and  fabric
+- move the chart and message to analysis
+- add 3 boxes that show the items in stock

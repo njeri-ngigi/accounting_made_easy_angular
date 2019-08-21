@@ -23,6 +23,7 @@ import { AddStockComponent } from './stock/add-stock/add-stock.component';
 import { StockAnalyticsComponent } from './stock/stock-analytics/stock-analytics.component';
 import { StockCardComponent } from './stock/stock-card/stock-card.component';
 import { StockService } from '../services/stock.service';
+import { StockNotificationComponent } from './stock/stock-notification/stock-notification.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { StockService } from '../services/stock.service';
     StockHomeComponent,
     AddStockComponent,
     StockAnalyticsComponent,
-    StockCardComponent
+    StockCardComponent,
+    StockNotificationComponent
   ],
   imports: [
     CommonModule,

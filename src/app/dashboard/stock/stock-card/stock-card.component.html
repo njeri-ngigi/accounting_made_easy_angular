@@ -1,18 +1,12 @@
 <div class="stock-card">
   <div class="stock-type">
-    <h2>12</h2>
-    <p>Trousers</p>
+    <h2>{{stockQuantity}}</h2>
+    <p>{{stockName}}</p>
   </div>
   <div class="stock-details">
     <div class="stock-images">
-      <div class="stock-image">
-        <img src={{stocks[0].url}}>
-      </div>
-      <div class="stock-image" >
-        <img src={{stocks[1].url}}>
-      </div>
-      <div class="stock-image" >
-        <img src={{stocks[2].url}}>
+      <div class="stock-image" *ngFor="let url of stockImageUrls">
+        <img src={{url}}>
       </div>
     </div>
     <div class="stock-rows">
@@ -20,13 +14,13 @@
         <p style="background-color: #D1F2EB">
           <span>D</span>
         </p>
-        <span class="mini-text">Marco, Jared, Kato ...</span>
+        <span class="mini-text">{{designers}}</span>
       </div>
       <div class="rows">
         <p style="background-color: #FADBD8" title="Fabric">
           <span>F</span>
         </p>
-        <span class="mini-text">Jeans, Khaki, Silk ...</span>
+        <span class="mini-text">{{fabrics}}</span>
       </div>
     </div>
   </div>

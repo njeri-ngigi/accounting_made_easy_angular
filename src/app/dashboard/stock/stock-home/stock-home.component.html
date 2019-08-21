@@ -10,7 +10,9 @@
       </canvas>
     </div>
     <div class="stock-details">
-      <h3>You're running low on Trousers</h3>
+      <h3>
+        <span>You're running low on Trousers</span>
+      </h3>
       <div>
         <button>View Sales</button>
         <button>Review Customers</button>
@@ -20,6 +22,12 @@
     
   </div>
   <div class="stock-cards">
-    <app-stock-card *ngFor="let stock of doughnutChartData"></app-stock-card>
+    <app-stock-card *ngFor="let stock of doughnutChartData; let i = index"
+      [stockQuantity]="doughnutChartData[i]"
+      [stockName]="doughnutChartLabels[i]"
+      [stockImageUrls]="stockImageUrls[i]"
+      [stockDesigners]="stockDesigners[i]"
+      [stockFabrics]="stockFabrics[i]"
+      ></app-stock-card>
   </div>
 </div>

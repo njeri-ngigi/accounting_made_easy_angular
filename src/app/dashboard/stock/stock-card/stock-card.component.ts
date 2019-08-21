@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-stock-card',
@@ -6,15 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stock-card.component.scss']
 })
 export class StockCardComponent implements OnInit {
-  stocks = [
-    {url: 'https://images.pexels.com/photos/417059/pexels-photo-417059.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'},
-    {url: 'https://images.pexels.com/photos/417059/pexels-photo-417059.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'},
-    {url: 'https://images.pexels.com/photos/417059/pexels-photo-417059.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'}
-  ];
+
+  @Input() stockQuantity = 0;
+  @Input() stockName = '';
+  @Input() stockImageUrls: string[] = [];
+  @Input() stockDesigners: string[] = [];
+  @Input() stockFabrics: string[] = [];
+  designers = '';
+  fabrics = '';
 
   constructor() { }
 
+  capitalizeAndJoin = (arrayObject: string[]): string => [
+    arrayObject.map((item) => `${item.charAt(0).toUpperCase()}${item.slice(1)}`)
+  ].join(', ')
+
   ngOnInit() {
+    this.designers = this.capitalizeAndJoin([...new Set(this.stockDesigners)]);
+    this.fabrics = this.capitalizeAndJoin([...new Set(this.stockFabrics)]);
   }
 
 }

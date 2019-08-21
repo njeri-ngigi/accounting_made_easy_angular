@@ -20,21 +20,30 @@ export class StockHomeComponent implements OnInit {
     legend: { position: 'bottom' }
   };
 
+  stockImageUrls = [];
+  stockDesigners = [];
+  stockFabrics = [];
+
   stocks: IStock[] = [];
-  sanitizedStock: IStock[] = [];
 
   constructor(private service: StockService) { }
 
   ngOnInit() {
     this.service.getAllStock().subscribe((data) => {
       this.stocks = data;
-      data.map(({stock_type, quantity}) => {
+      data.map(({stock_type, quantity, stock_image_url, designer, fabric}) => {
         const index = this.doughnutChartLabels.indexOf(stock_type);
         if (index < 0) {
           this.doughnutChartLabels.push(stock_type);
           this.doughnutChartData.push(quantity);
+          this.stockImageUrls.push([stock_image_url]);
+          this.stockDesigners.push([designer]);
+          this.stockFabrics.push([fabric]);
         } else {
           this.doughnutChartData[index] = this.doughnutChartData[index] + quantity;
+          this.stockImageUrls[index].push(stock_image_url);
+          this.stockDesigners[index].push(designer);
+          this.stockFabrics[index].push(fabric);
         }
       });
     });
