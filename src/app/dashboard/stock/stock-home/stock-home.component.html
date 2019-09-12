@@ -1,33 +1,22 @@
 <div class="stock-home">
-  <div class="doughnut-chart">
-    <div class="canvas">
-      <canvas baseChart
-        [data]="doughnutChartData"
-        [labels]="doughnutChartLabels"
-        [colors]="doughnutChartColors"
-        [options]="doughnutChartOptions"
-        [chartType]="doughnutChartType">
-      </canvas>
+  <div class="stock-types">
+      <p *ngFor="let item of doughnutChartLabels">{{item}}</p>
     </div>
-    <div class="stock-details">
-      <h3>
-        <span>You're running low on Trousers</span>
-      </h3>
-      <div>
-        <button>View Sales</button>
-        <button>Review Customers</button>
-        <button>Stock analysis</button>
+  <div class="stock-cards">
+    <div>
+      <div 
+        class="stock"
+        *ngFor="let stock of doughnutChartData; let i = index">
+        <button class="view-stock">View</button>
+        <h1>{{doughnutChartData[i]}}</h1>
+        
+        <p><em><b>Fabric: </b></em> <br>{{stockFabrics[i]}}</p>
+
+        <p><em><b>Designers: </b></em> <br>{{stockDesigners[i]}}</p>
+        <div class="status"></div>
+
       </div>
     </div>
     
-  </div>
-  <div class="stock-cards">
-    <app-stock-card *ngFor="let stock of doughnutChartData; let i = index"
-      [stockQuantity]="doughnutChartData[i]"
-      [stockName]="doughnutChartLabels[i]"
-      [stockImageUrls]="stockImageUrls[i]"
-      [stockDesigners]="stockDesigners[i]"
-      [stockFabrics]="stockFabrics[i]"
-      ></app-stock-card>
   </div>
 </div>

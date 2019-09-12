@@ -5,10 +5,15 @@ import { AuthGuardService } from './guards/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+  {
+    path: 'login',
+    component: LoginComponent,
+    canDeactivate: [AuthGuardService]
+  },
   {
     path: 'logout',
-    component: LoginComponent,
+    redirectTo: 'login',
+    // component: LoginComponent,
     canDeactivate: [AuthGuardService]
   },
   {

@@ -23,8 +23,10 @@ export class AuthGuardService implements CanActivate, CanDeactivate <CanComponen
     return false;
   }
 
-  canDeactivate(): boolean {
-    this.authService.logout();
-    return true;
+  canDeactivate(component: CanComponentDeactivate) {
+    console.log('Yeah, mate. Look away');
+    // component.canDeactivate();
+    // this.authService.logout();
+    return component.canDeactivate ? component.canDeactivate() : true;
   }
 }

@@ -1,3 +1,23 @@
-<p>
-  stock-analytics works!
-</p>
+<div>
+  <div class="doughnut-chart">
+    <div class="canvas">
+      <canvas baseChart
+        [data]="doughnutChartData"
+        [labels]="doughnutChartLabels"
+        [colors]="doughnutChartColors"
+        [options]="doughnutChartOptions"
+        [chartType]="doughnutChartType">
+      </canvas>
+    </div>
+    <div class="stock-details">
+      <h3>
+        <span>You're running low on Trousers</span>
+      </h3>
+      <div>
+        <button>View Sales</button>
+        <button>Review Customers</button>
+        <button>Stock analysis</button>
+      </div>
+    </div>
+  </div>
+</div>

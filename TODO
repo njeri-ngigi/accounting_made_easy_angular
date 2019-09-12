@@ -10,3 +10,11 @@ Features:
 - concat long long list of names for designer and  fabric
 - move the chart and message to analysis
 - add 3 boxes that show the items in stock
+
+- If types length = 1; show everything about the stock
+
+Bugs:
+- double logout/login
+
+Future Redos:
+- login page (purple, not so much)

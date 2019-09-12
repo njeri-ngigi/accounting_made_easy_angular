@@ -8,11 +8,13 @@ export class AuthService {
 
   login() {
     // TODO: call login method from the backend server
-    console.log('call meee????');
     localStorage.setItem('token', 'true');
   }
 
-  logout = () => localStorage.removeItem('token');
+  logout = () => {
+    console.log('Are you talking to me!');
+    localStorage.removeItem('token');
+  }
 
   isAuthenticated = () => (localStorage.getItem('token') === 'true');
 }

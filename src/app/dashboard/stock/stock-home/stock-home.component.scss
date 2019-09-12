@@ -1,69 +1,87 @@
+$type-color: #FEF9E7;
+$raleway: "Raleway";
+
 .stock-home {
   display: flex;
-  height: 97%;
-  width: 95%;
-  padding: 10px;
-  overflow: auto;
+  padding-top: 30px;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  width: 92%;
 
-  .doughnut-chart {
-    width: 39%;
+
+  .stock-types {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    min-height: 700px;
 
-    .canvas {
-      position: relative;
-    }
-
-    .canvas, .stock-details {
+    p {
+      padding: 10px;
+      background-color: white;
+      height: 40px;
+      width: 150px;
+      margin: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 40%;
-      width: 95%;
-      background-color: white;
-      margin: 10px;
-      border-radius: 10px;
+      font-family: $raleway;
+      border-radius: 5px;
+      font-size: 1.1em;
     }
 
-    .stock-details {
-      flex-direction: column;
-      h3 {
-        border-left: 3px solid red;
-        padding: 10px 20px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-
-        span {
-          animation-delay: 2s;
-          animation: sneak 1s;
-        }
-      }
-      button {
-        padding: 10px 20px;
-        border: 1px solid black;
-        outline: none;
-        border-radius: 20px;
-        margin: 10px;
-        cursor: pointer;
-      }
-
-      button:hover {
-        background-color: #FEF9E7;
-        transition: 0.5s ease-in-out;
-      }
+    p:hover{
+      cursor: pointer;
+      background-color: $type-color;
     }
   }
 
   .stock-cards {
-    width: 50%;
+    margin-top: 40px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    min-height: 700px;
+    align-items: center;
+    width: 90%;
+
+    div {
+      display: flex;
+      flex-wrap: wrap;
+
+      .stock {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        padding: 10px 50px;
+        min-width: 250px;
+        min-height: 200px;
+        border-radius: 10px;
+        font-family: $raleway;
+
+        .status {
+          background-color: green;
+          height: 12px;
+          width: 12px;
+          border-radius: 50%;
+          align-self: flex-end;
+          margin-top: -30px;
+          margin-bottom: 25px;
+          margin-right: 10px;
+        }
+
+        .view-stock {
+          align-self: flex-end;
+          position: absolute;
+          margin-top: 30px;
+          padding: 5px;
+          width: 90px;
+          background-color: white;
+          border: 1px solid black;
+          border-radius: 20px;
+          outline: none;
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
 

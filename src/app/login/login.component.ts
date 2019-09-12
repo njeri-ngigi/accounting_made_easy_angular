@@ -28,4 +28,14 @@ export class LoginComponent implements OnInit {
     this.authService.login();
     this.router.navigateByUrl('/dashboard');
   }
+
+  candDeactivate() {
+    if (localStorage.getItem('token')) {
+      localStorage.removeItem('token');
+    }
+    console.log('I deactivated this');
+
+    return true;
+  }
+
 }
