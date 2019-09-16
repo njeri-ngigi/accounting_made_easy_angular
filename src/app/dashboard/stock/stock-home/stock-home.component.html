@@ -16,7 +16,10 @@
 
   <div class="stock-view" *ngIf="singleStockView">
     <div class="stock-types">
-      <p *ngFor="let stockType of stockTypes" (click)="toggleStockView(true, stockType)">{{stockType | titlecase}}</p>
+      <p 
+        *ngFor="let stockType of stockTypes"
+        [ngClass]="{'add-background': stockTypeTabId == stockType}"
+        (click)="toggleStockView(true, stockType)">{{stockType | titlecase}}</p>
     </div>
     <app-stock-view 
       [stockData]="currentStockView"

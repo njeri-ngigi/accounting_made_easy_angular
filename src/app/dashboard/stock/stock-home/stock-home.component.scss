@@ -98,6 +98,10 @@ $raleway: "Raleway";
   font-weight: bolder;
 }
 
+.add-background {
+  background-color: $type-color !important;
+}
+
 /* Animations */
 @keyframes sneak {
   0% {
