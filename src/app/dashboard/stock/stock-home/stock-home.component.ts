@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartType } from 'chart.js';
-import { Label, SingleDataSet, Color } from 'ng2-charts';
 import { StockService } from 'src/app/services/stock.service';
 import { IStock } from 'src/app/models/stock.interface';
 
@@ -10,19 +8,9 @@ import { IStock } from 'src/app/models/stock.interface';
   styleUrls: ['./stock-home.component.scss']
 })
 export class StockHomeComponent implements OnInit {
-  doughnutChartType: ChartType = 'doughnut';
-  doughnutChartLabels: Label[] = [];
-  doughnutChartData: any[] = [];
-  doughnutChartColors: Color[] = [{
-    backgroundColor: ['#ABEBC6', '#2471A3', '#E74C3C', '#F0B27A']
-  }];
-  doughnutChartOptions: any = {
-    legend: { position: 'bottom' }
-  };
-
+  allStockDataByStockType = {};
+  stockTypes = [];
   stockImageUrls = [];
-  stockDesigners = [];
-  stockFabrics = [];
 
   stocks: IStock[] = [];
 
@@ -35,32 +23,42 @@ export class StockHomeComponent implements OnInit {
   ngOnInit() {
     this.service.getAllStock().subscribe((data) => {
       this.stocks = data;
-      data.map(({stock_type, quantity, stock_image_url, designer, fabric}) => {
-        const index = this.doughnutChartLabels.indexOf(stock_type);
-        if (index < 0) {
-          this.doughnutChartLabels.push(stock_type);
-          this.doughnutChartData.push(quantity);
-          this.stockImageUrls.push([stock_image_url]);
-          this.stockDesigners.push([designer]);
-          this.stockFabrics.push([fabric]);
+      data.map((item) => {
+        const { stock_type } = item;
+        if (!(stock_type in this.allStockDataByStockType)) {
+          this.allStockDataByStockType[stock_type] = [item];
         } else {
-          this.doughnutChartData[index] = this.doughnutChartData[index] + quantity;
-          this.stockImageUrls[index].push(stock_image_url);
-          this.stockDesigners[index].push(designer);
-          this.stockFabrics[index].push(fabric);
+          this.allStockDataByStockType[stock_type].push(item);
         }
+
+        this.stockTypes = [...Object.keys(this.allStockDataByStockType)];
       });
     });
   }
 
-  showSingleStockView(index: number) {
-    this.currentStockView = this.doughnutChartData[index];
-    this.singleStockView = true;
-    this.allStockView = false;
-  }
+  toggleStockView(view: boolean, stockType: string) {
+    if (stockType) { this.currentStockView = this.allStockDataByStockType[stockType]; }
 
-  toggleStockView(view: boolean) {
     this.singleStockView = view;
     this.allStockView = !view;
+  }
+
+  getStockQuantity(stockType: string) {
+    const stockItem = this.allStockDataByStockType[stockType];
+    if (stockItem.length > 1) {
+      return stockItem.reduce((total, next) => total.quantity + next.quantity);
+    }
+    return  stockItem[0].quantity;
+  }
+
+  getStockFieldString(stockType: string, field: string) {
+    const stockItem = this.allStockDataByStockType[stockType];
+    if (stockItem.length > 1) {
+      return stockItem.reduce(
+        (total, next) => total[field] === next[field] ?
+          total[field] : `${total[field]}, ${next[field]}`
+      );
+    }
+    return  stockItem[0][field];
   }
 }
