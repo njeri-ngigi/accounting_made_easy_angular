@@ -1,13 +1,17 @@
 <div class="stock-home">
   <div class="stock-types">
-      <p *ngFor="let item of doughnutChartLabels">{{item}}</p>
+      <p *ngFor="let item of doughnutChartLabels" (click)="toggleStockView(false)">{{item}}</p>
     </div>
   <div class="stock-cards">
-    <div>
+    <div *ngIf="allStockView">
       <div 
         class="stock"
-        *ngFor="let stock of doughnutChartData; let i = index">
-        <button class="view-stock">View</button>
+        *ngFor="let stock of doughnutChartData; let i = index"
+        >
+        <button 
+          class="view-stock"
+          (click)="showSingleStockView(i)"
+        >View</button>
         <h1>{{doughnutChartData[i]}}</h1>
         
         <p><em><b>Fabric: </b></em> <br>{{stockFabrics[i]}}</p>
@@ -17,6 +21,8 @@
 
       </div>
     </div>
+
+    <app-stock-view *ngIf="singleStockView"></app-stock-view>
     
   </div>
 </div>

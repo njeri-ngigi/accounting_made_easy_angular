@@ -24,6 +24,7 @@ import { StockAnalyticsComponent } from './stock/stock-analytics/stock-analytics
 import { StockCardComponent } from './stock/stock-card/stock-card.component';
 import { StockService } from '../services/stock.service';
 import { StockNotificationComponent } from './stock/stock-notification/stock-notification.component';
+import { StockViewComponent } from './stock/stock-view/stock-view.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { StockNotificationComponent } from './stock/stock-notification/stock-not
     AddStockComponent,
     StockAnalyticsComponent,
     StockCardComponent,
-    StockNotificationComponent
+    StockNotificationComponent,
+    StockViewComponent
   ],
   imports: [
     CommonModule,

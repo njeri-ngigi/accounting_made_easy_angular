@@ -26,6 +26,10 @@ export class StockHomeComponent implements OnInit {
 
   stocks: IStock[] = [];
 
+  allStockView = true;
+  singleStockView = false;
+  currentStockView = {};
+
   constructor(private service: StockService) { }
 
   ngOnInit() {
@@ -47,5 +51,16 @@ export class StockHomeComponent implements OnInit {
         }
       });
     });
+  }
+
+  showSingleStockView(index: number) {
+    this.currentStockView = this.doughnutChartData[index];
+    this.singleStockView = true;
+    this.allStockView = false;
+  }
+
+  toggleStockView(view: boolean) {
+    this.singleStockView = view;
+    this.allStockView = !view;
   }
 }
