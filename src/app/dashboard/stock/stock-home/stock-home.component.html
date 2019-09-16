@@ -1,28 +1,23 @@
 <div class="stock-home">
-  <div class="stock-types">
-      <p *ngFor="let item of doughnutChartLabels" (click)="toggleStockView(false)">{{item}}</p>
-    </div>
   <div class="stock-cards">
     <div *ngIf="allStockView">
-      <div 
-        class="stock"
-        *ngFor="let stock of doughnutChartData; let i = index"
-        >
-        <button 
-          class="view-stock"
-          (click)="showSingleStockView(i)"
-        >View</button>
-        <h1>{{doughnutChartData[i]}}</h1>
-        
-        <p><em><b>Fabric: </b></em> <br>{{stockFabrics[i]}}</p>
-
-        <p><em><b>Designers: </b></em> <br>{{stockDesigners[i]}}</p>
-        <div class="status"></div>
-
+      <div class="stock" *ngFor="let stockType of stockTypes; let i = index;">
+        <div class="stock-title">
+            <span>{{stockType | titlecase}}</span>
+            <span class="status"></span>
+            <button class="view-stock" (click)="toggleStockView(true, stockType)">View</button>
+        </div>
+        <h1>{{getStockQuantity(stockType)}}</h1>
+        <p><em><b>Fabric: </b></em> <br>{{getStockFieldString(stockType, 'fabric') | titlecase}}</p>
+        <p><em><b>Designers: </b></em> <br>{{getStockFieldString(stockType, 'designer') | titlecase}}</p>
       </div>
     </div>
+  </div>
 
-    <app-stock-view *ngIf="singleStockView"></app-stock-view>
-    
+  <div *ngIf="singleStockView">
+    <div class="stock-types">
+      <p *ngFor="let stockType of stockTypes" (click)="toggleStockView(false)">{{stockType | titlecase}}</p>
+    </div>
+    <app-stock-view ></app-stock-view>
   </div>
 </div>
