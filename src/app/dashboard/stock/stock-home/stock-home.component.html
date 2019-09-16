@@ -14,10 +14,12 @@
     </div>
   </div>
 
-  <div *ngIf="singleStockView">
+  <div class="stock-view" *ngIf="singleStockView">
     <div class="stock-types">
-      <p *ngFor="let stockType of stockTypes" (click)="toggleStockView(false)">{{stockType | titlecase}}</p>
+      <p *ngFor="let stockType of stockTypes" (click)="toggleStockView(true, stockType)">{{stockType | titlecase}}</p>
     </div>
-    <app-stock-view ></app-stock-view>
+    <app-stock-view 
+      [stockData]="currentStockView"
+      (viewChanged)="toggleStockView(false)"></app-stock-view>
   </div>
 </div>

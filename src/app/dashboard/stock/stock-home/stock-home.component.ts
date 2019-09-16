@@ -24,7 +24,7 @@ export class StockHomeComponent implements OnInit {
     this.service.getAllStock().subscribe((data) => {
       this.stocks = data;
       data.map((item) => {
-        const { stock_type, quantity, stock_image_url, designer, fabric } = item;
+        const { stock_type } = item;
         if (!(stock_type in this.allStockDataByStockType)) {
           this.allStockDataByStockType[stock_type] = [item];
         } else {

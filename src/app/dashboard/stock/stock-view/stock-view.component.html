@@ -1,3 +1,44 @@
-<p>
-  stock-view works!
-</p>
+<div class="stock-view">
+  <div class="stock-view-div">
+    <h2>{{stockData[0].stock_type | titlecase}}</h2>
+      <div class="flex">
+        <app-stock-notification class="flex-row"></app-stock-notification>
+        <div class="flex-row flex-column-center header-buttons">
+          <button (click)="switchToHome()">Home</button>
+          <button
+            routerLink="/dashboard/stock/addStock">Add Stock</button>
+        </div>
+      </div>
+    
+    <div class="stock-view-cards">
+      <div class="flex space-out" *ngFor="let stock of stockData">
+        <div>
+          <div class="partition flex">
+            <div>
+              <p>Designer:</p>
+              <p>Fabric:</p>
+              <p>Price:</p>
+              <p>Quantity:</p>
+              <p>Quality:</p>
+              <p>Description:</p>
+            </div>
+
+            <div>
+              <p>{{stock.designer | titlecase}}</p>
+              <p>{{stock.fabric | titlecase}}</p>
+              <p>Ksh. {{stock.price}}</p>
+              <p>{{stock.quantity}}</p>
+              <p>{{stock.quality}}</p>
+              <p>{{stock.description}}</p>
+            </div>
+          </div>
+          <button routerLink="/dashboard/orders">Order</button>
+        </div>
+
+        <div class="stock-view-card-image">
+          <img src={{stock.stock_image_url}}>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

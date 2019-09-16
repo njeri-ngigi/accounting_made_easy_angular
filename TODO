@@ -18,3 +18,8 @@ Bugs:
 
 Future Redos:
 - login page (purple, not so much)
+
+CSS styles to make common:
+  - flex: both flex, column & row;
+  - button styles
+  - bolder
