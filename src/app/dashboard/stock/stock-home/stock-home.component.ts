@@ -17,6 +17,7 @@ export class StockHomeComponent implements OnInit {
   allStockView = true;
   singleStockView = false;
   currentStockView = {};
+  stockTypeTabId: string;
 
   constructor(private service: StockService) { }
 
@@ -37,6 +38,7 @@ export class StockHomeComponent implements OnInit {
   }
 
   toggleStockView(view: boolean, stockType: string) {
+    this.stockTypeTabId = stockType;
     if (stockType) { this.currentStockView = this.allStockDataByStockType[stockType]; }
 
     this.singleStockView = view;
