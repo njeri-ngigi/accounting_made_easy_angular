@@ -1,0 +1,9 @@
+<div *ngIf="displayInput" class="input" [class.danger]="error">
+  <input type="text" placeholder="" [style.width]="width" (input)="emitChange($event.target.value)">
+  <label>{{label}}</label>
+</div>
+
+<div *ngIf="!displayInput" class="input">
+  <textarea placeholder="" [style.width]="width"></textarea>
+  <label>{{label}}</label>
+</div>

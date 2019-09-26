@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { ChartsModule } from 'ng2-charts';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -25,6 +26,9 @@ import { StockCardComponent } from './stock/stock-card/stock-card.component';
 import { StockService } from '../services/stock.service';
 import { StockNotificationComponent } from './stock/stock-notification/stock-notification.component';
 import { StockViewComponent } from './stock/stock-view/stock-view.component';
+import { AddImageComponent } from './add-image/add-image.component';
+import { StockSizeComponent } from './stock/add-stock/stock-size/stock-size.component';
+import { AddInputComponent } from './add-input/add-input.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,10 @@ import { StockViewComponent } from './stock/stock-view/stock-view.component';
     StockAnalyticsComponent,
     StockCardComponent,
     StockNotificationComponent,
-    StockViewComponent
+    StockViewComponent,
+    AddImageComponent,
+    StockSizeComponent,
+    AddInputComponent
   ],
   imports: [
     CommonModule,
@@ -51,6 +58,7 @@ import { StockViewComponent } from './stock/stock-view/stock-view.component';
     FontAwesomeModule,
     HttpClientModule,
     ChartsModule,
+    AngularSvgIconModule,
     ToastrModule.forRoot()
   ],
   providers: [
