@@ -1,8 +1,8 @@
 <div>
   <app-add-input [label]="'Size'" [width]="'160px'"
-    (inputChanged)="size=$event"></app-add-input>
+    (inputChanged)="setSize($event)"></app-add-input>
   <div class="sub-divs flex" *ngFor="let item of generateColorDivArray();" (click)="selectedDivIndex=item">
-    <app-add-input id="{{'color-input-' + item}}" 
+    <app-add-input id="{{'color-input-' + divIndex + '-' + item}}" 
       [label]="'Color'" [width]="'70px'"
       class="margin" (inputChanged)="addEntry(item, 'color', $event)">
     </app-add-input>
@@ -10,11 +10,11 @@
       (inputChanged)="addEntry(item, 'quantity', $event)"></app-add-input>
 
     <div class="flex flex-column flex-center icon" [class.disable]="!(selectedDivIndex == item)">
-      <span (click)="addColorDiv(item)" id="{{'addSpan-' + item}}"
+      <span (click)="addColorDiv(item)" id="{{'addSpan-' + divIndex + '-' + item}}"
         [class.disable]="getLastItemOfArray() !== item">
         <fa-icon [icon]="faPlusCircle"></fa-icon>
       </span>
-      <span (click)="removeColorDiv(item)" id="{{'removeSpan-' + item}}"
+      <span (click)="removeColorDiv(item)" id="{{'removeSpan-' + divIndex + '-' + item}}"
         [class.disable]="generateColorDivArray().length < 2">
         <fa-icon [icon]="faMinusCircle"></fa-icon>
       </span>

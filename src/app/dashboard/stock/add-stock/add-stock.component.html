@@ -30,12 +30,14 @@
       </div>
 
       <div class="data-card m-left flex flex-column flex-center-align">
-        <form class="flex flex-center margin-top">
-          <div class="flex flex-center">
-            <app-stock-size></app-stock-size>
-          </div>
-          
+        <form class="flex flex-column flex-center margin-top">
+          <app-stock-size 
+            *ngFor="let item of generateSizeArray();"
+            (sizeObjectChanged)="updateStockSizeObject(item, $event)"
+            [divIndex]="item"
+            id="{{'app-stock-size-' + item}}"></app-stock-size>          
         </form>
+        <p *ngIf="errorMessage" class="danger">{{errorMessage}}</p>
         <button class="add-stock-size" (click)="addSizeDiv()">Add Size</button>
       </div>
     </div>

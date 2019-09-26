@@ -139,10 +139,34 @@ form {
 }
 
 .add-stock-size  {
+  // TODO: fix to the bottom
   width: 90px;
   height: 30px;
   border: 1px solid black;
   border-radius: 15px;
   outline: none;
   cursor: pointer;
+}
+
+.flash-danger {
+  border-radius: 15px;
+  border: 1px solid red;
+  animation: fadein 1s;
+  transition: .8 ease-in-out;
+}
+
+.danger {
+  color: red;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+/* animations */
+@keyframes fadein {
+  0% {
+    border: 1px solid white;
+  }
+  100% {
+    border: 1px solid red;
+  }
 }

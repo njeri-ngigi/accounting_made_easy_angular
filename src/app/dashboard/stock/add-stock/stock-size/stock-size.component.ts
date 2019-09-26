@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, EventEmitter, Output, Input } from '@angular/core';
 import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -7,6 +7,9 @@ import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./stock-size.component.scss']
 })
 export class StockSizeComponent implements OnInit {
+  @Output() sizeObjectChanged = new EventEmitter();
+  @Input() divIndex: string;
+
   faPlusCircle = faPlusCircle;
   faMinusCircle = faMinusCircle;
 
@@ -15,7 +18,7 @@ export class StockSizeComponent implements OnInit {
   count = 1;
   errorMessage: string;
   size: string;
-
+  sizeObject;
 
   constructor(private element: ElementRef) { }
 
@@ -27,6 +30,21 @@ export class StockSizeComponent implements OnInit {
     this.subDivsObject[index] ?
       this.subDivsObject[index][type] = inputValue :
       this.subDivsObject[index] = { [type]: inputValue };
+    this.emitSizeObject();
+  }
+
+  setSize(size) {
+    this.size = size.trim();
+    this.emitSizeObject();
+  }
+
+  emitSizeObject() {
+    this.sizeObject = {};
+    const colorObjectIsNotEmpty = this.subDivsObject['0'].color && this.subDivsObject['0'].quantity;
+    if (this.size && colorObjectIsNotEmpty) {
+      this.sizeObject = { [this.size]: { ...this.subDivsObject }};
+    }
+    this.sizeObjectChanged.emit(this.sizeObject);
   }
 
   generateColorDivArray() {
@@ -55,7 +73,7 @@ export class StockSizeComponent implements OnInit {
       if (color.trim() && quantity.trim()) {
         const [divArray] = this.checkForDuplicateColors(indexString, color.trim());
         if (divArray) {
-          const inputEl = this.element.nativeElement.querySelector(`#color-input-${divArray[0]} .input`);
+          const inputEl = this.element.nativeElement.querySelector(`#color-input-${this.divIndex}-${divArray[0]} .input`);
           inputEl.classList.add('danger');
           this.errorMessage = '*color already exists';
           setTimeout(() => {
