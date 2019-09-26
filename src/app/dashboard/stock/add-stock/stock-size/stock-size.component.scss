@@ -1,0 +1,57 @@
+.margin {
+  margin-right: 6px;
+}
+
+.icon {
+  height: 45px;
+  animation: fadein 1s;
+
+  span {
+    cursor: pointer;
+  }
+}
+
+.add-span {
+  display: hidden;
+}
+
+.enable {
+  display: block !important;
+}
+
+.disable {
+  display: none !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.error-warning {
+  color: red;
+  font-size: 0.7em;
+  text-align: center;
+  margin-top: -10px;
+}
+
+/* animations */
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
