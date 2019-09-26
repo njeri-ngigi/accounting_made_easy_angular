@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StockService } from 'src/app/services/stock.service';
 import { IStock } from 'src/app/models/stock.interface';
+import { totalmem } from 'os';
 
 @Component({
   selector: 'app-stock-home',
@@ -48,7 +49,10 @@ export class StockHomeComponent implements OnInit {
   getStockQuantity(stockType: string) {
     const stockItem = this.allStockDataByStockType[stockType];
     if (stockItem.length > 1) {
-      return stockItem.reduce((total, next) => total.quantity + next.quantity);
+      const newStockObject = stockItem.reduce((total, next) => ({
+        ...total, quantity: total.quantity + next.quantity
+      }));
+      return newStockObject.quantity;
     }
     return  stockItem[0].quantity;
   }
@@ -56,10 +60,8 @@ export class StockHomeComponent implements OnInit {
   getStockFieldString(stockType: string, field: string) {
     const stockItem = this.allStockDataByStockType[stockType];
     if (stockItem.length > 1) {
-      return stockItem.reduce(
-        (total, next) => total[field] === next[field] ?
-          total[field] : `${total[field]}, ${next[field]}`
-      );
+       const stockFieldArray = [...new Set(stockItem.map(item => item[field]))];
+       return stockFieldArray.join(', ');
     }
     return  stockItem[0][field];
   }
