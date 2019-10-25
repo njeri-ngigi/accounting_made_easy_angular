@@ -8,12 +8,7 @@
 
     <div id="customer-form">
       <div class="customer-image">
-        <div class="image-div">
-          <span class="image-label" title="Upload a photo">
-            <fa-icon [icon]="faImages"></fa-icon>
-          </span>
-          <img src={{imagePlaceholder}}>
-        </div>
+        <app-add-image [height]='"200px"' [width]='"200px"'></app-add-image>
       </div>
 
       <form>

@@ -1,3 +1,46 @@
-<p>
-  add-stock works!
-</p>
+<div class="add-stock">
+  <div class="add-stock-container flex flex-center flex-column">
+    <div class="flex flex-center set-canvas">
+      <div class="data-card m-right">
+        <div class="type-icons flex flex-center">
+          <div title="Shirt">
+            <svg-icon src={{shirt}} [svgStyle]="{ 'width.px':40 }"></svg-icon>
+          </div>
+          <div title="Trouser">
+            <svg-icon src={{trouser}} [svgStyle]="{ 'width.px':40 }"></svg-icon>
+          </div>
+          <div title="Jacket">
+            <svg-icon src={{jacket}} [svgStyle]="{ 'width.px':40 }"></svg-icon>
+          </div>
+        </div>
+
+        <form class="flex flex-column flex-center">
+          <app-add-input *ngFor="let i of ['Price', 'Quantity', 'Quality']" [label]="i"></app-add-input>
+        </form>
+      </div>
+
+      <div class="data-card z-3-index flex flex-column flex-center-align">
+        <div class="stock-image">
+          <app-add-image [height]='"100px"' [width]='"100px"'></app-add-image>
+        </div>
+        <form class="flex flex-column flex-center stock-description">
+          <app-add-input *ngFor="let i of ['Designer', 'Fabric']" [label]="i" [width]="'180px'"></app-add-input>
+          <app-add-input [label]="'Description'" [width]="'180px'" [displayInput]="false"></app-add-input>
+        </form>
+      </div>
+
+      <div class="data-card m-left flex flex-column flex-center-align">
+        <form class="flex flex-column flex-center margin-top">
+          <app-stock-size 
+            *ngFor="let item of generateSizeArray();"
+            (sizeObjectChanged)="updateStockSizeObject(item, $event)"
+            [divIndex]="item"
+            id="{{'app-stock-size-' + item}}"></app-stock-size>          
+        </form>
+        <p *ngIf="errorMessage" class="danger">{{errorMessage}}</p>
+        <button class="add-stock-size" (click)="addSizeDiv()">Add Size</button>
+      </div>
+    </div>
+    <button class="add-stock-button">Add Stock</button>
+  </div>
+</div>

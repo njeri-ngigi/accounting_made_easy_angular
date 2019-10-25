@@ -1,0 +1,51 @@
+.input {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.input > label {
+  position: absolute;
+  left: 15px;
+  transition: 1s ease;
+  display: block;
+  top: 0;
+  margin-top: -7px;
+  background-color: white;
+  font-size: 0.8em;
+  color: black;
+}
+
+input,textarea {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 25px;
+  margin-bottom: 8px;
+  padding: 10px;
+  outline: none;
+}
+
+textarea {
+  height: 40px;
+}
+
+.danger {
+  label {
+    color: red
+  }
+  input {
+    border: 1px solid red;
+    animation: fadein .5s;
+  }
+}
+
+/* animations */
+@keyframes fadein {
+  0% {
+    color: black;
+    border: 1px solid black;
+  }
+  100% {
+    color: red;
+    border: 1px solid red;
+  }
+}
